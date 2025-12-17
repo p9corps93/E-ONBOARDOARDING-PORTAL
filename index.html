@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Energy+ Client Onboarding Portal">
+  <title>Energy+ Onboarding Portal</title>
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- PDF Generation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <!-- EmailJS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+  
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <h1 class="logo">ENERGY<span class="logo-accent">+</span></h1>
+      </div>
+      
+      <div class="progress-section">
+        <p class="progress-label" id="progressLabel">Step 1 of 7</p>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 14.28%;"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- STEP 1: OFFER & ECONOMICS -->
+      <div id="step-1" class="step-container" data-section="offer_and_economics">
+        <div class="step-header">
+          <h2 class="step-title">🔴 Offer & Economics</h2>
+          <p class="step-subtitle">Tell us about your offers, services, and core business model.</p>
+        </div>
+
+        <div class="step-content">
+          <div class="card">
+            
+            <!-- Section: Client Information (NEW) -->
+            <div class="card-section" style="background: var(--color-bg-input); padding: var(--space-xl); border-radius: var(--radius-lg); margin-bottom: var(--space-2xl);">
+              <div class="section-header" style="border-bottom: none; margin-bottom: var(--space-lg);">
+                <div class="section-letter">📋</div>
+                <h3 class="section-title">Your Information</h3>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label required" for="clientName">Your Full Name</label>
+                  <input type="text" id="clientName" name="clientName" class="form-input" required
+                    placeholder="John Smith">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label required" for="clientEmail">Your Email</label>
+                  <input type="email" id="clientEmail" name="clientEmail" class="form-input" required
+                    placeholder="john@company.com">
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label required" for="companyName">Company Name</label>
+                  <input type="text" id="companyName" name="companyName" class="form-input" required
+                    placeholder="ABC Solar Inc.">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="phoneNumber">Phone Number</label>
+                  <input type="tel" id="phoneNumber" name="phoneNumber" class="form-input"
+                    placeholder="+1 (555) 123-4567">
+                </div>
+              </div>
+            </div>
+
+            <!-- Section A: Offers / Services -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">A</div>
+                <h3 class="section-title">Offers / Services</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="offers">Offers / Services</label>
+                <textarea id="offers" name="offers" class="form-textarea" required 
+                  placeholder="Describe your main offers and services..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="niche">Niche</label>
+                <input type="text" id="niche" name="niche" class="form-input" required
+                  placeholder="e.g., Residential Solar, Commercial Solar, Battery Storage">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="icp">ICP (Ideal Customer Profile) — Who buys your offer?</label>
+                <textarea id="icp" name="icp" class="form-textarea" required
+                  placeholder="Describe your ideal customer in detail..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bigPromise">Big Promise / Transformation</label>
+                <textarea id="bigPromise" name="bigPromise" class="form-textarea"
+                  placeholder="What transformation do you promise customers?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="whyBuying">Why Are People Buying Your Offer?</label>
+                <textarea id="whyBuying" name="whyBuying" class="form-textarea"
+                  placeholder="What pain points are you solving?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bestSeller">Best-Seller Offer</label>
+                <input type="text" id="bestSeller" name="bestSeller" class="form-input"
+                  placeholder="Your most popular package/service">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="guarantee">Conditional Guarantee (if any)</label>
+                <textarea id="guarantee" name="guarantee" class="form-textarea"
+                  placeholder="Describe your guarantees or warranties..."></textarea>
+              </div>
+            </div>
+
+            <!-- Section B: Pricing & Payment -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">B</div>
+                <h3 class="section-title">Pricing & Payment</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="pricingStructure">Pricing Structure (Cash / Loan / PPA / Lease)</label>
+                <textarea id="pricingStructure" name="pricingStructure" class="form-textarea" required
+                  placeholder="Describe your pricing options..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="paymentOptions">Payment Options</label>
+                <textarea id="paymentOptions" name="paymentOptions" class="form-textarea"
+                  placeholder="What payment methods do you accept?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="deposits">Deposits (Do you accept deposits? Describe process)</label>
+                <textarea id="deposits" name="deposits" class="form-textarea"
+                  placeholder="Do you require deposits? How much? When?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="profitMargins">Profit Margins Per Client</label>
+                <input type="text" id="profitMargins" name="profitMargins" class="form-input"
+                  placeholder="e.g., 30% or $7,500 per deal">
+              </div>
+            </div>
+
+            <!-- Section C: Client Process -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">C</div>
+                <h3 class="section-title">Client Management</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="onboardingProcess">Client Onboarding Process</label>
+                <textarea id="onboardingProcess" name="onboardingProcess" class="form-textarea"
+                  placeholder="Describe your client onboarding steps..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="whatsBroken">What's broken? (Inefficiencies & bottlenecks)</label>
+                <textarea id="whatsBroken" name="whatsBroken" class="form-textarea"
+                  placeholder="What needs improvement in your process?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientCommunity">Client Community (Online or Local)</label>
+                <input type="text" id="clientCommunity" name="clientCommunity" class="form-input"
+                  placeholder="e.g., Facebook Group, Local Events">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="upsells">Upsells</label>
+                <textarea id="upsells" name="upsells" class="form-textarea"
+                  placeholder="What additional products/services do you offer?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="activeClients">Active Clients Count</label>
+                <select id="activeClients" name="activeClients" class="form-select">
+                  <option value="">Select range...</option>
+                  <option value="0-10">0-10 clients</option>
+                  <option value="11-25">11-25 clients</option>
+                  <option value="26-50">26-50 clients</option>
+                  <option value="51-100">51-100 clients</option>
+                  <option value="101-250">101-250 clients</option>
+                  <option value="251-500">251-500 clients</option>
+                  <option value="500+">500+ clients</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Section D: Funding Options (ENERGY+ Optimized) -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">D</div>
+                <h3 class="section-title">🟡 Funding Options (ENERGY+ Optimized)</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="fundingQualify">What funding or incentives do your clients currently qualify for?</label>
+                <textarea id="fundingQualify" name="fundingQualify" class="form-textarea" required
+                  placeholder="Federal tax credits, state rebates, utility incentives..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="financingOptions">Do you offer financing options — like $0 down or monthly payments?</label>
+                <select id="financingOptions" name="financingOptions" class="form-select" required>
+                  <option value="">Select option...</option>
+                  <option value="yes_inhouse">Yes - In-house financing</option>
+                  <option value="yes_partner">Yes - Through financing partner</option>
+                  <option value="yes_both">Yes - Both in-house and partner</option>
+                  <option value="no_cash_only">No - Cash/upfront payment only</option>
+                  <option value="other">Other (see notes)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="paperworkProcess">Who handles the incentive paperwork?</label>
+                <select id="paperworkProcess" name="paperworkProcess" class="form-select">
+                  <option value="">Select option...</option>
+                  <option value="we_handle">We handle all paperwork</option>
+                  <option value="client_applies">Client applies themselves</option>
+                  <option value="shared">Shared - we assist but client submits</option>
+                  <option value="no_incentives">No incentives/paperwork needed</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="fundingConfusion">What's the #1 thing clients get confused about when it comes to funding or pricing?</label>
+                <textarea id="fundingConfusion" name="fundingConfusion" class="form-textarea"
+                  placeholder="Common questions or misconceptions..."></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: LEAD FLOW -->
+      <div id="step-2" class="step-container hidden" data-section="lead_flow">
+        <div class="step-header">
+          <h2 class="step-title">🟢 Lead Flow</h2>
+          <p class="step-subtitle">Tell us about your lead generation channels, funnels, and paid advertising.</p>
+        </div>
+
+        <div class="step-content">
+          <div class="card">
+            
+            <!-- Section A: Organic Lead Flow -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">A</div>
+                <h3 class="section-title">🟢 Lead Flow — Organic</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Which organic channels are you active on?</label>
+                <div class="form-check">
+                  <input type="checkbox" id="facebook" name="organicChannels" value="facebook">
+                  <label class="form-check-label" for="facebook">Facebook (organic)</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="instagram" name="organicChannels" value="instagram">
+                  <label class="form-check-label" for="instagram">Instagram (organic)</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="youtube" name="organicChannels" value="youtube">
+                  <label class="form-check-label" for="youtube">YouTube</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="tiktok" name="organicChannels" value="tiktok">
+                  <label class="form-check-label" for="tiktok">TikTok</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="onlineCommunity">Online Community (FB Group / Skool / Discord)</label>
+                <input type="text" id="onlineCommunity" name="onlineCommunity" class="form-input"
+                  placeholder="Link or description">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="localPresence">Local Community Presence</label>
+                <textarea id="localPresence" name="localPresence" class="form-textarea"
+                  placeholder="Local events, partnerships, community involvement..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="postingFrequency">Posting Frequency</label>
+                <select id="postingFrequency" name="postingFrequency" class="form-select">
+                  <option value="">Select frequency...</option>
+                  <option value="multiple_daily">Multiple times per day</option>
+                  <option value="daily">Daily</option>
+                  <option value="3-5_weekly">3-5 times per week</option>
+                  <option value="1-2_weekly">1-2 times per week</option>
+                  <option value="few_monthly">Few times per month</option>
+                  <option value="inconsistent">Inconsistent/sporadic</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contentResponsible">Responsible for Content Distribution</label>
+                <select id="contentResponsible" name="contentResponsible" class="form-select">
+                  <option value="">Select option...</option>
+                  <option value="owner">Owner/Founder</option>
+                  <option value="inhouse_marketing">In-house Marketing Team</option>
+                  <option value="inhouse_va">In-house VA/Assistant</option>
+                  <option value="agency">External Agency</option>
+                  <option value="freelancer">Freelancer/Contractor</option>
+                  <option value="multiple">Multiple people/team</option>
+                  <option value="no_one">No one consistently</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="leadflowBottlenecks">Leadflow Bottlenecks</label>
+                <textarea id="leadflowBottlenecks" name="leadflowBottlenecks" class="form-textarea"
+                  placeholder="What's slowing down your organic lead generation?"></textarea>
+              </div>
+            </div>
+
+            <!-- Section B: Funnels & Opt-ins -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">B</div>
+                <h3 class="section-title">🟩 Lead Flow — Funnels & Opt-ins</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="funnelSoftware">Funnel Software Used</label>
+                <select id="funnelSoftware" name="funnelSoftware" class="form-select">
+                  <option value="">Select software...</option>
+                  <option value="gohighlevel">GoHighLevel</option>
+                  <option value="clickfunnels">ClickFunnels</option>
+                  <option value="leadpages">Leadpages</option>
+                  <option value="unbounce">Unbounce</option>
+                  <option value="kartra">Kartra</option>
+                  <option value="wordpress">WordPress + Plugins</option>
+                  <option value="custom">Custom/Built In-House</option>
+                  <option value="none">No funnels currently</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="optinFunnels">Opt-in Funnels</label>
+                <textarea id="optinFunnels" name="optinFunnels" class="form-textarea"
+                  placeholder="Describe your lead capture funnels..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="vslFunnels">VSL Funnels</label>
+                <textarea id="vslFunnels" name="vslFunnels" class="form-textarea"
+                  placeholder="Video Sales Letter funnels (if any)"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bookingFunnels">Booking Funnels</label>
+                <textarea id="bookingFunnels" name="bookingFunnels" class="form-textarea"
+                  placeholder="Direct-to-calendar funnels"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="leadMagnets">Lead Magnets</label>
+                <textarea id="leadMagnets" name="leadMagnets" class="form-textarea"
+                  placeholder="Free reports, calculators, guides, etc."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bestLeadMagnet">Best Performing Lead Magnet</label>
+                <select id="bestLeadMagnet" name="bestLeadMagnet" class="form-select">
+                  <option value="">Select lead magnet type...</option>
+                  <option value="calculator">Savings Calculator</option>
+                  <option value="pdf_guide">PDF Guide/eBook</option>
+                  <option value="video_training">Video Training</option>
+                  <option value="webinar">Webinar/Workshop</option>
+                  <option value="assessment">Free Assessment/Audit</option>
+                  <option value="quote">Free Quote</option>
+                  <option value="consultation">Free Consultation</option>
+                  <option value="checklist">Checklist</option>
+                  <option value="none">Don't have one yet</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="funnelAssets">Front-end Funnel Assets (links/info)</label>
+                <textarea id="funnelAssets" name="funnelAssets" class="form-textarea"
+                  placeholder="Share links to your funnels, landing pages, etc."></textarea>
+              </div>
+            </div>
+
+            <!-- Section C: Paid Ads -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">C</div>
+                <h3 class="section-title">🟦 Lead Flow — Paid Ads</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Ad Platforms Used (Meta, Google, etc.)</label>
+                <div class="form-check">
+                  <input type="checkbox" id="metaAds" name="adPlatforms" value="meta">
+                  <label class="form-check-label" for="metaAds">Meta (Facebook/Instagram)</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="googleAds" name="adPlatforms" value="google">
+                  <label class="form-check-label" for="googleAds">Google Ads</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="tiktokAds" name="adPlatforms" value="tiktok">
+                  <label class="form-check-label" for="tiktokAds">TikTok Ads</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="linkedinAds" name="adPlatforms" value="linkedin">
+                  <label class="form-check-label" for="linkedinAds">LinkedIn Ads</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="youtubeAds" name="adPlatforms" value="youtube">
+                  <label class="form-check-label" for="youtubeAds">YouTube Ads</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="dailyAdSpend">Daily Ad Spend per Channel</label>
+                <textarea id="dailyAdSpend" name="dailyAdSpend" class="form-textarea"
+                  placeholder="e.g., Meta: $500/day, Google: $300/day"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="mediaBuying">Media Buying (In-house or Agency)</label>
+                <div class="form-check">
+                  <input type="radio" id="inHouse" name="mediaBuying" value="in_house">
+                  <label class="form-check-label" for="inHouse">In-house team</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="agency" name="mediaBuying" value="agency">
+                  <label class="form-check-label" for="agency">External agency</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="hybrid" name="mediaBuying" value="hybrid">
+                  <label class="form-check-label" for="hybrid">Hybrid (both)</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="paidAdsBottlenecks">Paid Ads Bottlenecks</label>
+                <textarea id="paidAdsBottlenecks" name="paidAdsBottlenecks" class="form-textarea"
+                  placeholder="What's holding back your paid advertising?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adsLibrary">Ads Library Link / Info</label>
+                <input type="text" id="adsLibrary" name="adsLibrary" class="form-input"
+                  placeholder="Facebook Ads Library link or other references">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: APPOINTMENT FLOW -->
+      <div id="step-3" class="step-container hidden" data-section="appointment_flow">
+        <div class="step-header">
+          <h2 class="step-title">🔵 Appointment Flow</h2>
+          <p class="step-subtitle">Tell us how you book, confirm, and manage appointments.</p>
+        </div>
+
+        <div class="step-content">
+          <div class="card">
+            
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">A</div>
+                <h3 class="section-title">Booking & Process</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="bookingSoftware">Booking Software Used</label>
+                <select id="bookingSoftware" name="bookingSoftware" class="form-select" required>
+                  <option value="">Select booking software...</option>
+                  <option value="calendly">Calendly</option>
+                  <option value="acuity">Acuity Scheduling</option>
+                  <option value="gohighlevel">GoHighLevel</option>
+                  <option value="hubspot">HubSpot</option>
+                  <option value="appointlet">Appointlet</option>
+                  <option value="cal.com">Cal.com</option>
+                  <option value="manual">Manual/Phone Booking</option>
+                  <option value="crm_built_in">Built into CRM</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="bookingProcess">Describe Your Booking Process</label>
+                <textarea id="bookingProcess" name="bookingProcess" class="form-textarea" required
+                  placeholder="Walk us through how someone books an appointment..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="discoveryClosing">Do you use Discovery + Closing Calls? (Yes/No + details)</label>
+                <textarea id="discoveryClosing" name="discoveryClosing" class="form-textarea"
+                  placeholder="Describe your call structure..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bestChannel">Best Performing Channel (by revenue)</label>
+                <select id="bestChannel" name="bestChannel" class="form-select">
+                  <option value="">Select channel...</option>
+                  <option value="organic_social">Organic Social Media</option>
+                  <option value="paid_facebook">Paid - Facebook/Instagram</option>
+                  <option value="paid_google">Paid - Google Ads</option>
+                  <option value="referrals">Referrals</option>
+                  <option value="partnerships">Strategic Partnerships</option>
+                  <option value="door_knocking">Door Knocking/Canvassing</option>
+                  <option value="cold_calling">Cold Calling/Outbound</option>
+                  <option value="seo">SEO/Organic Search</option>
+                  <option value="other">Other</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">B</div>
+                <h3 class="section-title">Scripts & Sequences</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="settingScripts">Appointment-Setting Scripts</label>
+                <textarea id="settingScripts" name="settingScripts" class="form-textarea"
+                  placeholder="Share your appointment-setting scripts or process..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="confirmationProcess">Call Confirmation Process</label>
+                <textarea id="confirmationProcess" name="confirmationProcess" class="form-textarea"
+                  placeholder="How do you confirm appointments?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="discoverySequences">Discovery Call Email/SMS Sequences</label>
+                <textarea id="discoverySequences" name="discoverySequences" class="form-textarea"
+                  placeholder="Email/SMS sequences for discovery calls..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="closingSequences">Closing Call Email/SMS Sequences</label>
+                <textarea id="closingSequences" name="closingSequences" class="form-textarea"
+                  placeholder="Email/SMS sequences for closing calls..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="disqualifyProcess">Disqualify / Cancel Process</label>
+                <textarea id="disqualifyProcess" name="disqualifyProcess" class="form-textarea"
+                  placeholder="How do you handle disqualified leads or cancellations?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="recordings">Loom / Call Recordings (upload link or notes)</label>
+                <textarea id="recordings" name="recordings" class="form-textarea"
+                  placeholder="Share links to call recordings or Loom videos..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="apptBottlenecks">Bottlenecks in Appointment Flow</label>
+                <textarea id="apptBottlenecks" name="apptBottlenecks" class="form-textarea"
+                  placeholder="What's causing friction in your appointment process?"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: DEAL FLOW -->
+      <div id="step-4" class="step-container hidden" data-section="deal_flow">
+        <div class="step-header">
+          <h2 class="step-title">🟣 Deal Flow</h2>
+          <p class="step-subtitle">Tell us about your sales process, scripts, and performance tracking.</p>
+        </div>
+
+        <div class="step-content">
+          <div class="card">
+            
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">A</div>
+                <h3 class="section-title">Sales Process</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="salesScripts">Sales Scripts</label>
+                <textarea id="salesScripts" name="salesScripts" class="form-textarea"
+                  placeholder="Share your sales scripts or framework..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="discoveryScripts">Discovery Scripts</label>
+                <textarea id="discoveryScripts" name="discoveryScripts" class="form-textarea"
+                  placeholder="Share your discovery call scripts..."></textarea>
+              </div>
+            </div>
+
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">B</div>
+                <h3 class="section-title">Call Recordings & Performance</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="closedCallRecordings">Sales Call Recordings (2 closed, 2 lost — links/info)</label>
+                <textarea id="closedCallRecordings" name="closedCallRecordings" class="form-textarea"
+                  placeholder="Share links to 2 successful and 2 lost sales call recordings..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="discoveryCallRecordings">Discovery Call Recordings (2 qualified, 2 unqualified — links/info)</label>
+                <textarea id="discoveryCallRecordings" name="discoveryCallRecordings" class="form-textarea"
+                  placeholder="Share links to qualified and unqualified discovery call recordings..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="topPerformers">Best Performing Sales Reps (by revenue)</label>
+                <textarea id="topPerformers" name="topPerformers" class="form-textarea"
+                  placeholder="Who are your top closers and what makes them successful?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="dealFlowBottlenecks">Deal Flow Bottlenecks</label>
+                <textarea id="dealFlowBottlenecks" name="dealFlowBottlenecks" class="form-textarea"
+                  placeholder="What's preventing you from closing more deals?"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5: TEAM FLOW -->
+      <div id="step-5" class="step-container hidden" data-section="team_flow">
+        <div class="step-header">
+          <h2 class="step-title">🟣 Team Flow — Team Performance</h2>
+          <p class="step-subtitle">Tell us about your team structure, roles, and performance tracking.</p>
+        </div>
+
+        <div class="step-content">
+          <div class="card">
+            
+            <!-- Section A: Setters Team -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">A</div>
+                <h3 class="section-title">Setters Team</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Setters Team Breakdown — Name / Role / Channels / Notes / Evaluation</label>
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Role</th>
+                      <th>Channels</th>
+                      <th>Notes</th>
+                      <th>Evaluation</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="settersTableBody">
+                    <tr>
+                      <td><input type="text" name="setter_name[]" class="form-input" placeholder="Name"></td>
+                      <td><input type="text" name="setter_role[]" class="form-input" placeholder="Role"></td>
+                      <td><input type="text" name="setter_channels[]" class="form-input" placeholder="Channels"></td>
+                      <td><input type="text" name="setter_notes[]" class="form-input" placeholder="Notes"></td>
+                      <td>
+                        <select name="setter_eval[]" class="form-select">
+                          <option value="">Select...</option>
+                          <option value="excellent">Excellent</option>
+                          <option value="good">Good</option>
+                          <option value="needs_improvement">Needs Improvement</option>
+                          <option value="poor">Poor</option>
+                        </select>
+                      </td>
+                      <td style="text-align: center;">
+                        <button type="button" class="delete-row-btn" style="background: none; border: none; color: var(--color-error); cursor: pointer; font-size: 1.2rem;">✕</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="button" id="addSetter" class="btn-secondary" style="margin-top: 1rem;">+ Add Setter</button>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setterEOD">Setter EOD Report Link</label>
+                <input type="text" id="setterEOD" name="setterEOD" class="form-input"
+                  placeholder="Link to end-of-day reports">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setterShow">Setter Show Report</label>
+                <input type="text" id="setterShow" name="setterShow" class="form-input"
+                  placeholder="Link to show rate reports">
+              </div>
+            </div>
+
+            <!-- Section B: Triagers Team -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">B</div>
+                <h3 class="section-title">Triagers Team</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Triagers Team Breakdown — Name / Responsibilities / Tools / Notes / Evaluation</label>
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Responsibilities</th>
+                      <th>Tools</th>
+                      <th>Notes</th>
+                      <th>Evaluation</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="triagersTableBody">
+                    <tr>
+                      <td><input type="text" name="triager_name[]" class="form-input" placeholder="Name"></td>
+                      <td><input type="text" name="triager_resp[]" class="form-input" placeholder="Responsibilities"></td>
+                      <td><input type="text" name="triager_tools[]" class="form-input" placeholder="Tools"></td>
+                      <td><input type="text" name="triager_notes[]" class="form-input" placeholder="Notes"></td>
+                      <td>
+                        <select name="triager_eval[]" class="form-select">
+                          <option value="">Select...</option>
+                          <option value="excellent">Excellent</option>
+                          <option value="good">Good</option>
+                          <option value="needs_improvement">Needs Improvement</option>
+                          <option value="poor">Poor</option>
+                        </select>
+                      </td>
+                      <td style="text-align: center;">
+                        <button type="button" class="delete-row-btn" style="background: none; border: none; color: var(--color-error); cursor: pointer; font-size: 1.2rem;">✕</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="button" id="addTriager" class="btn-secondary" style="margin-top: 1rem;">+ Add Triager</button>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="triagerEOD">Triager EOD Report Link</label>
+                <input type="text" id="triagerEOD" name="triagerEOD" class="form-input"
+                  placeholder="Link to end-of-day reports">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="triagerShow">Triager Show Report</label>
+                <input type="text" id="triagerShow" name="triagerShow" class="form-input"
+                  placeholder="Link to show rate reports">
+              </div>
+            </div>
+
+            <!-- Section C: Closers Team -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">C</div>
+                <h3 class="section-title">Closers Team</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Closers Team Breakdown — Name / Closing Role / Channels / Notes / Evaluation</label>
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Closing Role</th>
+                      <th>Channels</th>
+                      <th>Notes</th>
+                      <th>Evaluation</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="closersTableBody">
+                    <tr>
+                      <td><input type="text" name="closer_name[]" class="form-input" placeholder="Name"></td>
+                      <td><input type="text" name="closer_role[]" class="form-input" placeholder="Role"></td>
+                      <td><input type="text" name="closer_channels[]" class="form-input" placeholder="Channels"></td>
+                      <td><input type="text" name="closer_notes[]" class="form-input" placeholder="Notes"></td>
+                      <td>
+                        <select name="closer_eval[]" class="form-select">
+                          <option value="">Select...</option>
+                          <option value="excellent">Excellent</option>
+                          <option value="good">Good</option>
+                          <option value="needs_improvement">Needs Improvement</option>
+                          <option value="poor">Poor</option>
+                        </select>
+                      </td>
+                      <td style="text-align: center;">
+                        <button type="button" class="delete-row-btn" style="background: none; border: none; color: var(--color-error); cursor: pointer; font-size: 1.2rem;">✕</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="button" id="addCloser" class="btn-secondary" style="margin-top: 1rem;">+ Add Closer</button>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="closerEOD">Closer EOD Report Link</label>
+                <input type="text" id="closerEOD" name="closerEOD" class="form-input"
+                  placeholder="Link to end-of-day reports">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="closerShow">Closer Show Report</label>
+                <input type="text" id="closerShow" name="closerShow" class="form-input"
+                  placeholder="Link to show rate reports">
+              </div>
+            </div>
+
+            <!-- Section D: Team Operations -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">D</div>
+                <h3 class="section-title">Team Operations</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="onboardingAssets">Team Onboarding Assets (Links)</label>
+                <textarea id="onboardingAssets" name="onboardingAssets" class="form-textarea"
+                  placeholder="Share links to training materials, onboarding docs..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="commSoftware">Team Communication Software</label>
+                <select id="commSoftware" name="commSoftware" class="form-select" required>
+                  <option value="">Select software...</option>
+                  <option value="slack">Slack</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="discord">Discord</option>
+                  <option value="microsoft_teams">Microsoft Teams</option>
+                  <option value="telegram">Telegram</option>
+                  <option value="zoom_chat">Zoom Chat</option>
+                  <option value="email">Email</option>
+                  <option value="multiple">Multiple tools</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="callReview">Call Review Process</label>
+                <textarea id="callReview" name="callReview" class="form-textarea"
+                  placeholder="How do you review and provide feedback on calls?"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6: KPI TRACKING -->
+      <div id="step-6" class="step-container hidden" data-section="kpi_tracking">
+        <div class="step-header">
+          <h2 class="step-title">📊 Your Current KPIs</h2>
+          <p class="step-subtitle">Help us establish your baseline performance metrics. We'll track your improvement week by week!</p>
+        </div>
+
+        <div class="step-content">
+          <div class="card" style="background: linear-gradient(135deg, rgba(0, 255, 127, 0.05) 0%, rgba(0, 255, 127, 0.02) 100%); border: 1px solid rgba(0, 255, 127, 0.2);">
+            
+            <div style="text-align: center; margin-bottom: var(--space-2xl); padding: var(--space-xl); background: rgba(0, 255, 127, 0.05); border-radius: var(--radius-lg);">
+              <h3 style="font-size: var(--font-size-xl); color: var(--color-primary-green); margin-bottom: var(--space-md);">
+                📈 Our Truth Based on DATA
+              </h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--font-size-base);">
+                The 6 KPIs that determine acquisition efficiency and revenue performance
+              </p>
+            </div>
+
+            <div class="grid-2" style="gap: var(--space-xl);">
+              
+              <div class="form-group">
+                <label class="form-label">💵 Cost Per Lead (CPL)</label>
+                <input type="text" id="kpi_cost_per_lead" name="kpi_cost_per_lead" class="form-input"
+                  placeholder="e.g., $120">
+                <p class="helper-text">Avg cost per lead</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">💰 Customer Acquisition Cost (CAC)</label>
+                <input type="text" id="kpi_cac" name="kpi_cac" class="form-input"
+                  placeholder="e.g., $1,000 - $6,000">
+                <p class="helper-text">Cost to acquire 1 customer</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">🔄 Lead-to-Appointment Rate</label>
+                <input type="text" id="kpi_lead_to_appointment" name="kpi_lead_to_appointment" class="form-input"
+                  placeholder="e.g., 8-15% avg">
+                <p class="helper-text">35-45% with ENERGY+</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">⚡ Speed-to-Lead</label>
+                <input type="text" id="kpi_speed_to_lead" name="kpi_speed_to_lead" class="form-input"
+                  placeholder="e.g., 20-90 min">
+                <p class="helper-text">Top performers: < 60 sec</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">📈 Close Rate</label>
+                <input type="text" id="kpi_closing_rate" name="kpi_closing_rate" class="form-input"
+                  placeholder="e.g., 12-18%">
+                <p class="helper-text">Top teams: 25-35%</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">✅ Follow-Up Completion</label>
+                <input type="text" id="kpi_followup_completion" name="kpi_followup_completion" class="form-input"
+                  placeholder="e.g., 10-20%">
+                <p class="helper-text">80% of leads lack proper follow-up</p>
+              </div>
+
+            </div>
+
+            <div style="margin-top: var(--space-2xl); padding: var(--space-xl); background: rgba(0, 255, 127, 0.05); border-radius: var(--radius-lg); border-left: 4px solid var(--color-primary-green);">
+              <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed);">
+                <strong style="color: var(--color-primary-green);">💡 Why this matters:</strong><br>
+                These baseline numbers help us track your week-by-week progress. You'll see exactly how much we're improving your CAC, close rates, and overall performance in your delivery dashboard.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 7: SYSTEMS & LOGINS -->
+      <div id="step-7" class="step-container hidden" data-section="systems_and_logins">
+        <div class="step-header">
+          <h2 class="step-title">🔐 Systems & Logins</h2>
+          <p class="step-subtitle">We need <strong>instant access</strong> to start delivering results immediately.</p>
+          <div style="background: var(--color-bg-input); padding: var(--space-lg); border-radius: var(--radius-md); margin-top: var(--space-lg); border-left: 4px solid var(--color-primary-green);">
+            <p style="margin: 0; color: var(--color-text-secondary); font-size: var(--font-size-sm);">
+              <strong style="color: var(--color-primary-green);">For each system, provide ONE of the following:</strong><br><br>
+              ✅ <strong>Direct Login Credentials</strong> (email + password)<br>
+              ✅ <strong>OR Grant Team Access</strong> (add us as Admin/Editor)<br><br>
+              Without instant access, we cannot begin delivery. Please ensure all access is granted before completing this step.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-content">
+          <div class="card">
+            
+            <!-- Section A: Core Business Systems -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">A</div>
+                <h3 class="section-title">🔴 Core Business Systems</h3>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_google_email" name="systems" value="google_email">
+                  <label class="form-check-label" for="sys_google_email"><strong>Google Email Address</strong> (admin access)</label>
+                </div>
+                <input type="text" name="login_google_email" class="form-input" placeholder="Provide: Email/Password OR grant admin access to our team email" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_google_email" class="form-textarea" placeholder="Notes or additional context..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_zapier" name="systems" value="zapier">
+                  <label class="form-check-label" for="sys_zapier"><strong>Zapier</strong></label>
+                </div>
+                <input type="text" name="login_zapier" class="form-input" placeholder="Provide login credentials OR invite our team email" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_zapier" class="form-textarea" placeholder="Notes (e.g., Upgrade to Pro Plan recommended)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_make" name="systems" value="make">
+                  <label class="form-check-label" for="sys_make"><strong>Make.com</strong></label>
+                </div>
+                <input type="text" name="login_make" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_make" class="form-textarea" placeholder="Notes (e.g., Upgrade to Core Plan recommended)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_payment" name="systems" value="payment_gateway">
+                  <label class="form-check-label" for="sys_payment"><strong>Stripe / Payment Gateway</strong></label>
+                </div>
+                <input type="text" name="login_payment" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_payment" class="form-textarea" placeholder="Notes (Stripe, PayPal, etc.)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_domain" name="systems" value="domain_host">
+                  <label class="form-check-label" for="sys_domain"><strong>Domain Host</strong> (GoDaddy, Namecheap, etc.)</label>
+                </div>
+                <input type="text" name="login_domain" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_domain" class="form-textarea" placeholder="Notes (e.g., GoDaddy account)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_sms" name="systems" value="sms_system">
+                  <label class="form-check-label" for="sys_sms"><strong>SMS System</strong> (Twilio, LeadConnector, etc.)</label>
+                </div>
+                <input type="text" name="login_sms" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_sms" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_scheduler" name="systems" value="scheduler">
+                  <label class="form-check-label" for="sys_scheduler"><strong>Scheduler Software</strong> (Calendly, ScheduleOnce, GHL, etc.)</label>
+                </div>
+                <input type="text" name="login_scheduler" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_scheduler" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_funnel" name="systems" value="funnel_software">
+                  <label class="form-check-label" for="sys_funnel"><strong>Funnel Software</strong> (ClickFunnels, Systeme.io, etc.)</label>
+                </div>
+                <input type="text" name="login_funnel" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_funnel" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_crm" name="systems" value="crm">
+                  <label class="form-check-label" for="sys_crm"><strong>GoHighLevel or Sales CRM</strong></label>
+                </div>
+                <input type="text" name="login_crm" class="form-input" placeholder="Provide login credentials OR grant team/admin access" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_crm" class="form-textarea" placeholder="Notes (Agency access, sub-account info, etc.)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_email_marketing" name="systems" value="email_marketing">
+                  <label class="form-check-label" for="sys_email_marketing"><strong>Email Marketing Software</strong> (Gmail API, Sendgrid, SES, Mailgun, etc.)</label>
+                </div>
+                <input type="text" name="login_email_marketing" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_email_marketing" class="form-textarea" placeholder="Notes (include domain if using Sendgrid/SES)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+            </div>
+
+            <!-- Section B: Social Media & Organic Channels -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">B</div>
+                <h3 class="section-title">📱 Social Media & Organic Channels</h3>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_fb_bm" name="systems" value="fb_business_manager">
+                  <label class="form-check-label" for="sys_fb_bm"><strong>Facebook Business Manager</strong> (Admin Access)</label>
+                </div>
+                <input type="text" name="login_fb_bm" class="form-input" placeholder="Business Manager ID + grant Admin access to our team" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_fb_bm" class="form-textarea" placeholder="Notes (Business Manager ID, confirm Admin role granted)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_fb_page" name="systems" value="fb_page">
+                  <label class="form-check-label" for="sys_fb_page"><strong>Facebook Business Page</strong> (Admin/Editor)</label>
+                </div>
+                <input type="text" name="login_fb_page" class="form-input" placeholder="Page URL or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_fb_page" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_instagram" name="systems" value="instagram">
+                  <label class="form-check-label" for="sys_instagram"><strong>Instagram Business Account</strong></label>
+                </div>
+                <input type="text" name="login_instagram" class="form-input" placeholder="@username + grant access OR provide login credentials" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_instagram" class="form-textarea" placeholder="Notes (Add us as Editor/Admin via FB Business Manager)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_tiktok" name="systems" value="tiktok">
+                  <label class="form-check-label" for="sys_tiktok"><strong>TikTok Business Account</strong></label>
+                </div>
+                <input type="text" name="login_tiktok" class="form-input" placeholder="@username or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_tiktok" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_linkedin" name="systems" value="linkedin">
+                  <label class="form-check-label" for="sys_linkedin"><strong>LinkedIn Company Page</strong> (Admin)</label>
+                </div>
+                <input type="text" name="login_linkedin" class="form-input" placeholder="Page URL or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_linkedin" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_youtube" name="systems" value="youtube">
+                  <label class="form-check-label" for="sys_youtube"><strong>YouTube Channel</strong> (Manager Access)</label>
+                </div>
+                <input type="text" name="login_youtube" class="form-input" placeholder="Channel URL or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_youtube" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_twitter" name="systems" value="twitter">
+                  <label class="form-check-label" for="sys_twitter"><strong>Twitter/X Business Account</strong></label>
+                </div>
+                <input type="text" name="login_twitter" class="form-input" placeholder="@username or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_twitter" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_pinterest" name="systems" value="pinterest">
+                  <label class="form-check-label" for="sys_pinterest"><strong>Pinterest Business Account</strong></label>
+                </div>
+                <input type="text" name="login_pinterest" class="form-input" placeholder="Profile URL or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_pinterest" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+            </div>
+
+            <!-- Section C: Paid Advertising Platforms -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">C</div>
+                <h3 class="section-title">💰 Paid Advertising Platforms</h3>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_meta_ads" name="systems" value="meta_ads">
+                  <label class="form-check-label" for="sys_meta_ads"><strong>Meta Ads Manager</strong> (Facebook/Instagram Ads)</label>
+                </div>
+                <input type="text" name="login_meta_ads" class="form-input" placeholder="Ad Account ID + grant Admin access OR provide login credentials" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_meta_ads" class="form-textarea" placeholder="Notes (Confirm Admin access granted to our team)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_google_ads" name="systems" value="google_ads">
+                  <label class="form-check-label" for="sys_google_ads"><strong>Google Ads Account</strong> (Admin Access)</label>
+                </div>
+                <input type="text" name="login_google_ads" class="form-input" placeholder="Customer ID + grant Admin access OR provide login credentials" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_google_ads" class="form-textarea" placeholder="Notes (Customer ID, confirm Admin/MCC access granted)..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_tiktok_ads" name="systems" value="tiktok_ads">
+                  <label class="form-check-label" for="sys_tiktok_ads"><strong>TikTok Ads Manager</strong></label>
+                </div>
+                <input type="text" name="login_tiktok_ads" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_tiktok_ads" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_linkedin_ads" name="systems" value="linkedin_ads">
+                  <label class="form-check-label" for="sys_linkedin_ads"><strong>LinkedIn Ads Account</strong></label>
+                </div>
+                <input type="text" name="login_linkedin_ads" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_linkedin_ads" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="sys_youtube_ads" name="systems" value="youtube_ads">
+                  <label class="form-check-label" for="sys_youtube_ads"><strong>YouTube Ads</strong> (via Google Ads)</label>
+                </div>
+                <input type="text" name="login_youtube_ads" class="form-input" placeholder="Email or access link" style="margin: 0.5rem 0 0 2rem;">
+                <textarea name="notes_youtube_ads" class="form-textarea" placeholder="Notes..." style="margin: 0.5rem 0 1rem 2rem; min-height: 60px;"></textarea>
+              </div>
+            </div>
+
+            <!-- Section D: Website Audit -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">D</div>
+                <h3 class="section-title">🌐 Website Audit</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required" for="websiteUrl">Website URL</label>
+                <input type="text" id="websiteUrl" name="websiteUrl" class="form-input" required
+                  placeholder="https://yourcompany.com">
+                <p class="helper-text">We'll audit your website. If changes are needed, we'll request specific access during delivery.</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="websiteNotes">Website Notes</label>
+                <textarea id="websiteNotes" name="websiteNotes" class="form-textarea"
+                  placeholder="Any context about your website we should know..."></textarea>
+              </div>
+            </div>
+
+            <!-- Section E: Additional Systems -->
+            <div class="card-section">
+              <div class="section-header">
+                <div class="section-letter">E</div>
+                <h3 class="section-title">➕ Additional Systems</h3>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Add any other systems not listed above</label>
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>System Name</th>
+                      <th>Login/Access Info</th>
+                      <th>Notes</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="additionalSystemsBody">
+                    <tr>
+                      <td><input type="text" name="custom_system_name[]" class="form-input" placeholder="System name"></td>
+                      <td><input type="text" name="custom_system_login[]" class="form-input" placeholder="Email or access link"></td>
+                      <td><input type="text" name="custom_system_notes[]" class="form-input" placeholder="Notes"></td>
+                      <td style="text-align: center;">
+                        <button type="button" class="delete-row-btn" style="background: none; border: none; color: var(--color-error); cursor: pointer; font-size: 1.2rem;">✕</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="button" id="addCustomSystem" class="btn-secondary" style="margin-top: 1rem;">+ Add System</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- CLIENT PROGRESS DASHBOARD -->
+      <div id="completion" class="step-container hidden">
+        <div class="dashboard-container">
+          
+          <!-- Dashboard Header -->
+          <div class="dashboard-header">
+            <div class="completion-icon" style="font-size: 60px; margin-bottom: 1rem;">✓</div>
+            <h2 class="dashboard-title">Welcome to Your Energy+ Progress Dashboard</h2>
+            <p class="dashboard-subtitle">Track your transformation in real-time as we optimize every aspect of your business.</p>
+          </div>
+
+          <!-- Client Overview Card -->
+          <div class="card" style="margin-bottom: var(--space-2xl); background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); border: 1px solid var(--color-primary-green);">
+            <div class="section-header" style="border-bottom: 1px solid var(--color-primary-green);">
+              <div class="section-letter">📋</div>
+              <h3 class="section-title">Your Information</h3>
+            </div>
+            <div class="grid-2" style="margin-top: var(--space-lg);">
+              <div>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs);">Company</p>
+                <p id="dashboardCompany" style="font-size: var(--font-size-lg); color: var(--color-primary-green); font-weight: var(--font-weight-bold); margin-bottom: var(--space-md);">--</p>
+              </div>
+              <div>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs);">Contact</p>
+                <p id="dashboardContact" style="font-size: var(--font-size-base); color: var(--color-text-primary); margin-bottom: var(--space-md);">--</p>
+              </div>
+              <div>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs);">Email</p>
+                <p id="dashboardEmail" style="font-size: var(--font-size-base); color: var(--color-text-primary); margin-bottom: var(--space-md);">--</p>
+              </div>
+              <div>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs);">Onboarding Date</p>
+                <p id="dashboardDate" style="font-size: var(--font-size-base); color: var(--color-text-primary); margin-bottom: var(--space-md);">--</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overall Progress -->
+          <div class="card" style="margin-bottom: var(--space-2xl); text-align: center;">
+            <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-md);">Overall Delivery Progress</h3>
+            <div style="margin: var(--space-xl) auto; max-width: 200px;">
+              <div class="circular-progress" style="position: relative; width: 200px; height: 200px; margin: 0 auto;">
+                <svg width="200" height="200" style="transform: rotate(-90deg);">
+                  <circle cx="100" cy="100" r="85" fill="none" stroke="var(--color-bg-input)" stroke-width="15"/>
+                  <circle id="overallProgressCircle" cx="100" cy="100" r="85" fill="none" stroke="var(--color-primary-green)" stroke-width="15" stroke-dasharray="534.07" stroke-dashoffset="534.07" style="transition: stroke-dashoffset 1s ease;"/>
+                </svg>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                  <div id="overallProgressPercent" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-primary-green);">0%</div>
+                  <div style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-xs);">Complete</div>
+                </div>
+              </div>
+            </div>
+            <p style="color: var(--color-text-secondary); margin-top: var(--space-lg);">Our team is actively working on optimizing your systems. Check back daily for updates!</p>
+          </div>
+
+          <!-- Delivery Areas Progress -->
+          <div class="card" style="margin-bottom: var(--space-2xl);">
+            <h3 style="font-size: var(--font-size-xl); margin-bottom: var(--space-xl); text-align: center;">Delivery Areas</h3>
+            
+            <!-- Area 1: Offer & Economics -->
+            <div class="progress-area" style="margin-bottom: var(--space-xl);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <div style="display: flex; align-items: center; gap: var(--space-md);">
+                  <span style="font-size: var(--font-size-lg);">🔴</span>
+                  <h4 style="font-size: var(--font-size-lg); color: var(--color-text-primary); margin: 0;">Offer & Economics Optimization</h4>
+                </div>
+                <span id="progress1Percent" style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary-green);">0%</span>
+              </div>
+              <div class="progress-bar" style="height: 12px;">
+                <div id="progress1Fill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <p id="progress1Status" style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-sm);">Awaiting team review...</p>
+            </div>
+
+            <!-- Area 2: Lead Flow -->
+            <div class="progress-area" style="margin-bottom: var(--space-xl);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <div style="display: flex; align-items: center; gap: var(--space-md);">
+                  <span style="font-size: var(--font-size-lg);">🟢</span>
+                  <h4 style="font-size: var(--font-size-lg); color: var(--color-text-primary); margin: 0;">Lead Flow Enhancement</h4>
+                </div>
+                <span id="progress2Percent" style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary-green);">0%</span>
+              </div>
+              <div class="progress-bar" style="height: 12px;">
+                <div id="progress2Fill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <p id="progress2Status" style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-sm);">Awaiting team review...</p>
+            </div>
+
+            <!-- Area 3: Appointment Flow -->
+            <div class="progress-area" style="margin-bottom: var(--space-xl);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <div style="display: flex; align-items: center; gap: var(--space-md);">
+                  <span style="font-size: var(--font-size-lg);">🔵</span>
+                  <h4 style="font-size: var(--font-size-lg); color: var(--color-text-primary); margin: 0;">Appointment Flow Optimization</h4>
+                </div>
+                <span id="progress3Percent" style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary-green);">0%</span>
+              </div>
+              <div class="progress-bar" style="height: 12px;">
+                <div id="progress3Fill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <p id="progress3Status" style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-sm);">Awaiting team review...</p>
+            </div>
+
+            <!-- Area 4: Deal Flow -->
+            <div class="progress-area" style="margin-bottom: var(--space-xl);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <div style="display: flex; align-items: center; gap: var(--space-md);">
+                  <span style="font-size: var(--font-size-lg);">🟣</span>
+                  <h4 style="font-size: var(--font-size-lg); color: var(--color-text-primary); margin: 0;">Deal Flow Enhancement</h4>
+                </div>
+                <span id="progress4Percent" style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary-green);">0%</span>
+              </div>
+              <div class="progress-bar" style="height: 12px;">
+                <div id="progress4Fill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <p id="progress4Status" style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-sm);">Awaiting team review...</p>
+            </div>
+
+            <!-- Area 5: Team Performance -->
+            <div class="progress-area" style="margin-bottom: var(--space-xl);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <div style="display: flex; align-items: center; gap: var(--space-md);">
+                  <span style="font-size: var(--font-size-lg);">👥</span>
+                  <h4 style="font-size: var(--font-size-lg); color: var(--color-text-primary); margin: 0;">Team Performance Optimization</h4>
+                </div>
+                <span id="progress5Percent" style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary-green);">0%</span>
+              </div>
+              <div class="progress-bar" style="height: 12px;">
+                <div id="progress5Fill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <p id="progress5Status" style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-sm);">Awaiting team review...</p>
+            </div>
+
+            <!-- Area 6: Systems & Access -->
+            <div class="progress-area">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <div style="display: flex; align-items: center; gap: var(--space-md);">
+                  <span style="font-size: var(--font-size-lg);">🔐</span>
+                  <h4 style="font-size: var(--font-size-lg); color: var(--color-text-primary); margin: 0;">Systems Integration & Access</h4>
+                </div>
+                <span id="progress6Percent" style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary-green);">0%</span>
+              </div>
+              <div class="progress-bar" style="height: 12px;">
+                <div id="progress6Fill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <p id="progress6Status" style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-sm);">Awaiting team review...</p>
+            </div>
+          </div>
+
+          <!-- Next Steps -->
+          <div class="card" style="margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(0, 255, 127, 0.1) 0%, rgba(0, 255, 127, 0.05) 100%); border: 1px solid var(--color-primary-green);">
+            <h3 style="font-size: var(--font-size-xl); margin-bottom: var(--space-lg); color: var(--color-primary-green);">🚀 What Happens Next?</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+              <div style="display: flex; gap: var(--space-md); align-items: start;">
+                <span style="color: var(--color-primary-green); font-weight: var(--font-weight-bold); min-width: 30px;">1.</span>
+                <p style="margin: 0; color: var(--color-text-secondary);">Our team reviews your onboarding information within 24 hours</p>
+              </div>
+              <div style="display: flex; gap: var(--space-md); align-items: start;">
+                <span style="color: var(--color-primary-green); font-weight: var(--font-weight-bold); min-width: 30px;">2.</span>
+                <p style="margin: 0; color: var(--color-text-secondary);">You'll receive your acceleration call invite to map out the optimization strategy</p>
+              </div>
+              <div style="display: flex; gap: var(--space-md); align-items: start;">
+                <span style="color: var(--color-primary-green); font-weight: var(--font-weight-bold); min-width: 30px;">3.</span>
+                <p style="margin: 0; color: var(--color-text-secondary);">We begin implementation and you can track progress right here daily</p>
+              </div>
+              <div style="display: flex; gap: var(--space-md); align-items: start;">
+                <span style="color: var(--color-primary-green); font-weight: var(--font-weight-bold); min-width: 30px;">4.</span>
+                <p style="margin: 0; color: var(--color-text-secondary);">Your dashboard updates in real-time as we optimize each area of your business</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div style="text-align: center;">
+            <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">
+              <strong>Bookmark this page</strong> to check your progress anytime!
+            </p>
+            
+            <!-- START SCALING Button -->
+            <div style="margin: var(--space-2xl) 0;">
+              <button type="button" id="startScalingBtn" class="btn-primary" style="font-size: var(--font-size-lg); padding: var(--space-lg) var(--space-3xl); min-width: 250px;">
+                🚀 START SCALING
+              </button>
+              <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: var(--space-md);">
+                See what we're implementing daily to scale your brand
+              </p>
+            </div>
+            
+            <div class="completion-actions">
+              <button type="button" id="exportBtn" class="btn-secondary">
+                📥 Download Your Report (PDF)
+              </button>
+              <button type="button" id="restartBtn" class="btn-secondary">
+                🔄 Start New Onboarding
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DELIVERY TRACKING SECTION -->
+      <div id="deliveryTracking" class="step-container hidden">
+        <div class="dashboard-container">
+          
+          <!-- Header -->
+          <div class="dashboard-header">
+            <button type="button" id="backToDashboard" class="btn-secondary" style="position: absolute; left: 0; top: 0;">
+              ← Back to Dashboard
+            </button>
+            <h2 class="dashboard-title">📊 Your Delivery Tracking</h2>
+            <p class="dashboard-subtitle">See exactly what we're implementing daily to scale your brand</p>
+          </div>
+
+          <!-- Client Info Bar -->
+          <div class="card" style="margin-bottom: var(--space-xl); background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); border: 1px solid var(--color-primary-green);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);">
+              <div>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs);">Company</p>
+                <p id="deliveryCompanyName" style="font-size: var(--font-size-lg); color: var(--color-primary-green); font-weight: var(--font-weight-bold); margin: 0;">--</p>
+              </div>
+              <div>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs);">Overall Progress</p>
+                <p id="deliveryOverallProgress" style="font-size: var(--font-size-lg); color: var(--color-primary-green); font-weight: var(--font-weight-bold); margin: 0;">0%</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Navigation -->
+          <div class="card" style="margin-bottom: var(--space-xl);">
+            <div style="display: flex; gap: var(--space-lg); align-items: center; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 200px;">
+                <label class="form-label">Select Month</label>
+                <select id="monthSelector" class="form-select">
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+              <div style="flex: 1; min-width: 200px;">
+                <label class="form-label">Select Week</label>
+                <select id="weekSelector" class="form-select">
+                  <option value="1">Week 1</option>
+                  <option value="2">Week 2</option>
+                  <option value="3">Week 3</option>
+                  <option value="4">Week 4</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI Dashboard -->
+          <div id="kpiDashboard" class="card" style="margin-bottom: var(--space-xl); background: linear-gradient(135deg, rgba(0, 255, 127, 0.05) 0%, rgba(0, 255, 127, 0.02) 100%); border: 1px solid rgba(0, 255, 127, 0.2); display: none;">
+            <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+              <span>📊</span>
+              Your KPIs This Week
+            </h3>
+            <div id="kpiMetricsDisplay" class="grid-2" style="gap: var(--space-lg);">
+              <!-- KPIs will be populated here -->
+            </div>
+          </div>
+
+          <!-- Delivery Areas -->
+          <div id="deliveryAreasContainer">
+            
+            <!-- Area 1: Offer & Economics -->
+            <div class="card delivery-area-card" style="margin-bottom: var(--space-lg);">
+              <div class="delivery-area-header" style="cursor: pointer;" data-area="1">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: var(--space-md);">
+                    <span style="font-size: var(--font-size-xl);">🔴</span>
+                    <h3 style="font-size: var(--font-size-lg); margin: 0;">Offer & Economics Optimization</h3>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-lg);">
+                    <span class="area-progress-badge" data-area="1" style="background: rgba(0, 255, 127, 0.15); color: var(--color-primary-green); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-weight: var(--font-weight-bold);">0%</span>
+                    <span class="expand-icon" style="font-size: var(--font-size-xl); color: var(--color-text-muted);">▼</span>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery-area-content" data-area="1" style="display: none; margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border);">
+                <div class="timeline-container">
+                  <!-- Updates populated dynamically -->
+                  <p style="color: var(--color-text-muted); text-align: center; padding: var(--space-xl);">No updates yet for this period</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Area 2: Lead Flow -->
+            <div class="card delivery-area-card" style="margin-bottom: var(--space-lg);">
+              <div class="delivery-area-header" style="cursor: pointer;" data-area="2">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: var(--space-md);">
+                    <span style="font-size: var(--font-size-xl);">🟢</span>
+                    <h3 style="font-size: var(--font-size-lg); margin: 0;">Lead Flow Enhancement</h3>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-lg);">
+                    <span class="area-progress-badge" data-area="2" style="background: rgba(0, 255, 127, 0.15); color: var(--color-primary-green); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-weight: var(--font-weight-bold);">0%</span>
+                    <span class="expand-icon" style="font-size: var(--font-size-xl); color: var(--color-text-muted);">▼</span>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery-area-content" data-area="2" style="display: none; margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border);">
+                <div class="timeline-container">
+                  <p style="color: var(--color-text-muted); text-align: center; padding: var(--space-xl);">No updates yet for this period</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Area 3: Appointment Flow -->
+            <div class="card delivery-area-card" style="margin-bottom: var(--space-lg);">
+              <div class="delivery-area-header" style="cursor: pointer;" data-area="3">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: var(--space-md);">
+                    <span style="font-size: var(--font-size-xl);">🔵</span>
+                    <h3 style="font-size: var(--font-size-lg); margin: 0;">Appointment Flow Optimization</h3>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-lg);">
+                    <span class="area-progress-badge" data-area="3" style="background: rgba(0, 255, 127, 0.15); color: var(--color-primary-green); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-weight: var(--font-weight-bold);">0%</span>
+                    <span class="expand-icon" style="font-size: var(--font-size-xl); color: var(--color-text-muted);">▼</span>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery-area-content" data-area="3" style="display: none; margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border);">
+                <div class="timeline-container">
+                  <p style="color: var(--color-text-muted); text-align: center; padding: var(--space-xl);">No updates yet for this period</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Area 4: Deal Flow -->
+            <div class="card delivery-area-card" style="margin-bottom: var(--space-lg);">
+              <div class="delivery-area-header" style="cursor: pointer;" data-area="4">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: var(--space-md);">
+                    <span style="font-size: var(--font-size-xl);">🟣</span>
+                    <h3 style="font-size: var(--font-size-lg); margin: 0;">Deal Flow Enhancement</h3>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-lg);">
+                    <span class="area-progress-badge" data-area="4" style="background: rgba(0, 255, 127, 0.15); color: var(--color-primary-green); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-weight: var(--font-weight-bold);">0%</span>
+                    <span class="expand-icon" style="font-size: var(--font-size-xl); color: var(--color-text-muted);">▼</span>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery-area-content" data-area="4" style="display: none; margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border);">
+                <div class="timeline-container">
+                  <p style="color: var(--color-text-muted); text-align: center; padding: var(--space-xl);">No updates yet for this period</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Area 5: Team Performance -->
+            <div class="card delivery-area-card" style="margin-bottom: var(--space-lg);">
+              <div class="delivery-area-header" style="cursor: pointer;" data-area="5">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: var(--space-md);">
+                    <span style="font-size: var(--font-size-xl);">👥</span>
+                    <h3 style="font-size: var(--font-size-lg); margin: 0;">Team Performance Optimization</h3>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-lg);">
+                    <span class="area-progress-badge" data-area="5" style="background: rgba(0, 255, 127, 0.15); color: var(--color-primary-green); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-weight: var(--font-weight-bold);">0%</span>
+                    <span class="expand-icon" style="font-size: var(--font-size-xl); color: var(--color-text-muted);">▼</span>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery-area-content" data-area="5" style="display: none; margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border);">
+                <div class="timeline-container">
+                  <p style="color: var(--color-text-muted); text-align: center; padding: var(--space-xl);">No updates yet for this period</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Area 6: Systems & Access -->
+            <div class="card delivery-area-card" style="margin-bottom: var(--space-lg);">
+              <div class="delivery-area-header" style="cursor: pointer;" data-area="6">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: var(--space-md);">
+                    <span style="font-size: var(--font-size-xl);">🔐</span>
+                    <h3 style="font-size: var(--font-size-lg); margin: 0;">Systems Integration & Access</h3>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-lg);">
+                    <span class="area-progress-badge" data-area="6" style="background: rgba(0, 255, 127, 0.15); color: var(--color-primary-green); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-weight: var(--font-weight-bold);">0%</span>
+                    <span class="expand-icon" style="font-size: var(--font-size-xl); color: var(--color-text-muted);">▼</span>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery-area-content" data-area="6" style="display: none; margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border);">
+                <div class="timeline-container">
+                  <p style="color: var(--color-text-muted); text-align: center; padding: var(--space-xl);">No updates yet for this period</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Navigation Footer -->
+    <footer class="nav-footer">
+      <button type="button" id="backBtn" class="btn btn-secondary">Back</button>
+      <button type="button" id="nextBtn" class="btn btn-primary">Next Step →</button>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/pdf-generator.js"></script>
+  <script src="js/email-sender.js"></script>
+  <script src="js/kpi-tracking.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/delivery-tracking.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
